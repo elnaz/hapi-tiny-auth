@@ -1,0 +1,49 @@
+{
+  "name": "hapi-tiny-auth",
+  "version": "0.0.0",
+  "description": "Just enough authentication to make an API private",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "enforce": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100",
+    "lint": "eslint .",
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+    "test:raw": "NODE_ENV=test mocha test --require test/setup.js --recursive --timeout 30000",
+    "test": "NODE_ENV=test istanbul cover _mocha -- test --require test/setup.js --recursive --timeout 30000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elnaz/hapi-tiny-auth.git"
+  },
+  "keywords": [
+    "hapi",
+    "authentication",
+    "hapi-basic-auth",
+    "api",
+    "basic",
+    "authentication"
+  ],
+  "author": "Elnaz Moshfeghian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elnaz/hapi-tiny-auth/issues"
+  },
+  "homepage": "https://github.com/elnaz/hapi-tiny-auth#readme",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "eslint": "^1.9.0",
+    "eslint-config-lob": "^2.0.0",
+    "generate-changelog": "^1.0.0",
+    "hapi": "^13.5.0",
+    "hapi-auth-basic": "^4.2.0",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "joi": "^9.0.1"
+  }
+}

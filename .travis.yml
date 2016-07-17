@@ -1,0 +1,10 @@
+language: node_js
+sudo: false
+node_js:
+  - 6.3.0
+env:
+  - NODE_ENV="test"
+script:
+  - npm test
+  - npm run enforce
+  - npm run lint
