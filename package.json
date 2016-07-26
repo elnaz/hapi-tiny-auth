@@ -33,6 +33,9 @@
     "url": "https://github.com/elnaz/hapi-tiny-auth/issues"
   },
   "homepage": "https://github.com/elnaz/hapi-tiny-auth#readme",
+  "peerDependencies": {
+    "hapi-auth-basic": ">=3.x"
+  },
   "devDependencies": {
     "chai": "^3.0.0",
     "eslint": "^1.9.0",
