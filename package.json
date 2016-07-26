@@ -1,6 +1,6 @@
 {
   "name": "hapi-tiny-auth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just enough authentication to make an API private",
   "main": "lib/index.js",
   "directories": {
