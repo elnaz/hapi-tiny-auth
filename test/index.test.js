@@ -3,7 +3,7 @@
 const Hapi = require('hapi');
 
 const authHeader = (username, password) => {
-  return `Basic ${new Buffer(`${username}:${password}`, 'utf8').toString('base64')}`;
+  return `Basic ${new Buffer(`${username}:${password || ''}`, 'utf8').toString('base64')}`;
 };
 
 const OPTIONS = {
@@ -39,6 +39,39 @@ describe('plugin', () => {
       url: '/authentication_test',
       headers: {
         authorization: authHeader('username', 'password')
+      }
+    })
+    .then((response) => {
+      expect(response.statusCode).to.eql(200);
+    });
+  });
+
+  it('accepts a username alone if so configured', () => {
+    const usernameOnlyServer = new Hapi.Server();
+
+    usernameOnlyServer.connection({ port: 800 });
+    usernameOnlyServer.register([
+      require('hapi-auth-basic'),
+      {
+        register: require('../lib'),
+        options: { username: 'username' }
+      }
+    ], () => {});
+    usernameOnlyServer.route({
+      method: 'GET',
+      path: '/authentication_test',
+      config: {
+        handler: (request, reply) => {
+          reply('welcome');
+        }
+      }
+    });
+
+    return usernameOnlyServer.inject({
+      method: 'GET',
+      url: '/authentication_test',
+      headers: {
+        authorization: authHeader('username')
       }
     })
     .then((response) => {

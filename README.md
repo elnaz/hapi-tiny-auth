@@ -23,7 +23,7 @@ server.register([
     register: require('hapi-tiny-auth'),
     options: {
       username: 'USERNAME', // required
-      password: 'PASSWORD'  // required
+      password: 'PASSWORD'  // optional
     }
   }
 ], (err) => {
