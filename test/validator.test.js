@@ -31,14 +31,6 @@ describe('validator', () => {
 
   describe('password', () => {
 
-    it('is required', () => {
-      const options = { username: 'username' };
-      const result = Joi.validate(options, Validator);
-
-      expect(result.error.details[0].path).to.eql('password');
-      expect(result.error.details[0].type).to.eql('any.required');
-    });
-
     it('is at least three characters long', () => {
       const options = {
         username: 'username',
