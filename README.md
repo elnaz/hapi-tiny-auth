@@ -1,7 +1,7 @@
 # hapi-tiny-auth
 
 [![Build Status](https://travis-ci.org/elnaz/hapi-tiny-auth.svg)](https://travis-ci.org/elnaz/hapi-tiny-auth)
-[![Coverage Status](https://coveralls.io/repos/github/elnaz/hapi-tiny-auth/badge.svg?branch=master)](https://coveralls.io/github/elnaz/hapi-tiny-auth?branch=master)
+[![Coverage Status](https://coveralls.io/repos/elnaz/hapi-tiny-auth/badge.svg?branch=master)](https://coveralls.io/github/elnaz/hapi-tiny-auth?branch=master)
 
 Just enough authentication to make an API private. This [Hapi](http://hapijs.com/) plugin will allow only one set of configured credentials to access any of the API's endpoints. Must be used with [hapi-auth-basic](https://github.com/hapijs/hapi-auth-basic).
 
